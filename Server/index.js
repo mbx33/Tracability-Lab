@@ -26,10 +26,9 @@ app.get('/', function(req, res) {
 app.get('/weather', function(req, res) { 
     try {
         weather(20, 70)
-        console.log(weather) 
+        
      } catch (warning) {
-         rollbar.error(warning)  
-         console.warning(warning)      
+         rollbar.warning(warning)       
     }        
 })
 
