@@ -21,8 +21,7 @@ app.get('/', function(req, res) {
 });
 
 
-app.get("/weather", (req, res) => {
-    rollbar.error("Weather page hit", request) 
+app.get("/weather", (req, res) => { 
     
 })
 
