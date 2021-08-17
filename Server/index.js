@@ -15,12 +15,11 @@ const rollbar = new Rollbar({
 });
 
 app.get('/', function(req, res) {
-    rollbar.log("Hello world!");
     res.sendFile(path.join(__dirname, '../client/index.html'))
 });
 
 
-app.get("/api/weather", (req, res) => {
+app.get("/api/weather", () => {
     rollbar.log("Hell");
 })
 
