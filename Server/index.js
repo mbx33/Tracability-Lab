@@ -15,17 +15,24 @@ const rollbar = new Rollbar({
   captureUnhandledRejections: true
 });
 
+app.use(rollbar.errorHandler());
+
 app.get('/', function(req, res) {
     rollbar.log("Hello This is working")
     res.sendFile(path.join(__dirname, '../client/index.html'))
 });
 
 
-app.get("/weather", (req, res) => { 
-    rollbar.log("this should not work")
-    res.sendFile(path.join(__dirname, '../client/weather'))
+app.get("/weather", function(req, res) { 
+    try {
+        weather(1, 2) 
+    // rollbar.log("this should not work")
+    // res.sendFile(path.join(__dirname, '../client/weather')) 
+     } catch (error) {
+         rollbar.error(error)  
+         console.log(error)      
+    }        
 })
-
 
 
 app.listen(port, function() {
