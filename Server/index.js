@@ -1,4 +1,5 @@
 const express = require('express');
+const { request } = require('http');
 const app = express();
 
 const path = require('path');
@@ -14,15 +15,15 @@ const rollbar = new Rollbar({
   captureUnhandledRejections: true
 });
 
-// app.get('/', function(req, res) {
-//     rollbar.log("Hell")
-//     res.sendFile(path.join(__dirname, '../client/index.html'))
-// });
-
-
-app.get("/api/weather", () => {
+app.get('/', function(req, res) {
     rollbar.log("Hell")
     res.sendFile(path.join(__dirname, '../client/index.html'))
+});
+
+
+app.get("/weather", (req, res) => {
+    rollbar.error("Weather page hit", request) 
+    
 })
 
 
