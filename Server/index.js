@@ -23,18 +23,13 @@ app.get('/', function(req, res) {
 });
 
 
-function weather(num1, num2) {
-    let currentTemp = num1 + num2 + 30;
-}
-
-
 app.get('/weather', function(req, res) { 
     try {
         weather(20, 70)
         console.log(weather) 
-     } catch (error) {
+     } catch (warning) {
          rollbar.error(error)  
-         console.log(error)      
+         console.warning(warning)      
     }        
 })
 
