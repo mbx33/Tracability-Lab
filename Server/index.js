@@ -20,7 +20,9 @@ app.get('/', function(req, res) {
 });
 
 
-
+app.get("/api/weather", (req, res) => {
+    
+})
 
 
 
