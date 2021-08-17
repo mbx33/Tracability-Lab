@@ -16,17 +16,18 @@ const rollbar = new Rollbar({
 });
 
 app.get('/', function(req, res) {
-    rollbar.log("Hell")
+    rollbar.log("Hello This is working")
     res.sendFile(path.join(__dirname, '../client/index.html'))
 });
 
 
 app.get("/weather", (req, res) => { 
-    
+    rollbar.log("this should not work")
+    res.sendFile(path.join(__dirname, '../client/weather'))
 })
 
 
 
 app.listen(port, function() {
-    console.log(`Listening on ${port}`)
+    console.log(`Slushaiyu on ${port}`)
 })
