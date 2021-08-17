@@ -20,7 +20,8 @@ app.get('/', function(req, res) {
 
 
 app.get("/api/weather", () => {
-    rollbar.log("Hell");
+    rollbar.log("Hell")
+    res.sendFile(path.join(__dirname, '../client/index.html'))
 })
 
 
