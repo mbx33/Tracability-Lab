@@ -35,7 +35,7 @@ app.get('/weather', function(req, res) {
 app.get('/weatherNew', function (req, res) {
     try {
         weatherNew(3, 8)
-    } catch (error) {
+    } catch (criticalError) {
         rollbar.critical(criticalError)
     }
 })
