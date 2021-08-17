@@ -23,11 +23,15 @@ app.get('/', function(req, res) {
 });
 
 
-app.get("/weather", function(req, res) { 
+function weather(num1, num2) {
+    let currentTemp = num1 + num2 + 30;
+}
+
+
+app.get('/weather', function(req, res) { 
     try {
-        weather(1, 2) 
-    // rollbar.log("this should not work")
-    // res.sendFile(path.join(__dirname, '../client/weather')) 
+        weather(20, 70)
+        console.log(weather) 
      } catch (error) {
          rollbar.error(error)  
          console.log(error)      
